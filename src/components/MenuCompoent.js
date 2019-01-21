@@ -17,7 +17,7 @@ class Menu extends Component {
     }
 
     onDishSelect(dish) {
-      this. setState({ selectedDish: dish});
+      this.setState({ selectedDish: dish});
     }
 
     renderDish(dish) {
@@ -27,7 +27,7 @@ class Menu extends Component {
             <CardImg width="100%" src={dish.image} alt={dish.name} />
             <CardBody>
               <CardTitle>{dish.name}</CardTitle>
-              {/* <CardText>{dish.description}</CardText> */}
+              <CardText>{dish.description}</CardText>
             </CardBody>
           </Card>
         );

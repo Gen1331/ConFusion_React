@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component{
 
-
     render(){
         const dish = this.props.dish;
-        const comments = this.props.dish.comments;
+        const comments = this.props.comments;
             if (dish != null){
                 return (
                 <div className='row'>
@@ -36,11 +35,16 @@ class DishDetail extends Component{
             return (
                 <div className='m-1 col-sm-12 col-md-5'>
                     <h4>Comments</h4>
-                <ul className='list'>
-                    <li>{this.props.dish.comments}</li>
+                <ul>
+                    {this.comments.map((comment) => {
+                        return (
+                            <li key={comment.id}>{comment}{comment.author}{comment.date}</li>
+                            
+                        );
+                    })}
+                    
                 </ul>
                 </div>
-
             );
         }
         else {
@@ -49,6 +53,7 @@ class DishDetail extends Component{
             );
         }
     }
+    
 }
 
 
