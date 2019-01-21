@@ -13,7 +13,7 @@ class Menu extends Component {
     }
 
     componentDidMount(){
-      console.log('Menu Component componentDifMount is invoked');
+      console.log('Menu Component componentDidMount is invoked');
     }
 
     onDishSelect(dish) {
@@ -61,7 +61,7 @@ class Menu extends Component {
             <div className="row">
                 {menu}
             </div>
-              <DishDetail data ={this.state.selectedDish} />
+              <DishDetail dish ={this.state.selectedDish} />
               
           
           </div>
