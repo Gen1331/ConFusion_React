@@ -18,7 +18,6 @@ class Header extends Component {
     }
     render() {
         return(
-            // short form for React.Fragment //
             <React.Fragment>
                 <Navbar dark expand='md'>
                 <div className='container'>
