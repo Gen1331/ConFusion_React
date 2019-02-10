@@ -1,13 +1,15 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderLeader({leader}) {
     return(
         <div className='col-sm-12 m-1'>
             <Media tag="li">
                 <Media left middle>
-                    <Media object src={leader.image} alt={leader.name} />
+                    <Media object src={baseUrl + leader.image} alt={leader.name} />
                 </Media>
                 <Media body className="ml-5">
                     <Media heading>{leader.name}</Media>
@@ -18,6 +20,63 @@ function RenderLeader({leader}) {
         </div>           
     );
 }
+
+const LeaderList = (props) => {
+    
+    const listOfLeaders = props.leaders.leaders.map((leader) => {
+        return (
+          <div key={leader.id} className="col-12 col-md-5 m-1">
+            <RenderLeader leader={leader}/>
+          </div>
+        );
+    });
+
+    
+    if (props.leaders.isLoading) {
+      return(
+          <div className="container">
+              <div className="row">            
+                  <Loading />
+              </div>
+          </div>
+      );
+  }
+  else if (props.leaders.errMess) {
+      return(
+          <div className="container">
+              <div className="row"> 
+                  <div className="col-12">
+                      <h4>{props.leaders.errMess}</h4>
+                  </div>
+              </div>
+          </div>
+      );
+  }
+  else
+      return (
+        <div className="container">
+          <div className='row'>
+            <Breadcrumb>
+              <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+              <BreadcrumbItem active>Leaders</BreadcrumbItem>
+            </Breadcrumb>
+          <div className='col-12'>
+            <h3>Leaders</h3>
+              <hr />
+            </div>
+          </div>
+          <div className="row">
+              {leaders}
+          </div>              
+        </div>
+      );
+  }
+
+
+
+
+
+
 
 function About(props) {
 

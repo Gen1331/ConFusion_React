@@ -22,7 +22,8 @@ function RenderCard({item, isLoading, errMess}) {
                     exitTransfrom: 'scale(0.5) translateY(-50%)'
                 }}>
             <Card>
-                <CardImg src={baseUrl + item.image} alt={item.name} />                <CardBody>
+                <CardImg src={baseUrl + item.image} alt={item.name} />                
+                <CardBody>
                     <CardTitle>{item.name}</CardTitle>
                     {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null}
                     <CardText>{item.description}</CardText>
@@ -42,9 +43,15 @@ function Home(props) {
                 errMess={props.dishesErrMess}/>
             </div>
             <div className='col-12 col-md m1'>
-            <RenderCard item={props.promotion} isLoading={props.promoLoading} errMess={props.promoErrMess} />            </div>
+            <RenderCard item={props.promotion} 
+            isLoading={props.promoLoading} 
+            errMess={props.promoErrMess} />           
+            </div>
             <div className='col-12 col-md m1'>
-                <RenderCard item={props.leader} />
+                <RenderCard item={props.leader}
+                isLoading={props.leadersLoading}
+                errMess={props.leadersErrMess}
+                 />
             </div>
         </div>
       </div>      
