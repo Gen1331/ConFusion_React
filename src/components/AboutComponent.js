@@ -66,16 +66,11 @@ const LeaderList = (props) => {
             </div>
           </div>
           <div className="row">
-              {leaders}
+              {listOfLeaders}
           </div>              
         </div>
       );
   }
-
-
-
-
-
 
 
 function About(props) {

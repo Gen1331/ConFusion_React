@@ -50,9 +50,9 @@ class Main extends Component {
               promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
               promoLoading={this.props.promotions.isLoading}
               promoErrMess={this.props.promotions.errMess}
-              leaders={this.props.leaders.filter((leader) => leader.featured)[0]}
+              leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
               leadersLoading={this.props.leaders.isLoading}
-              leadersErrMess={this.props.promotions.errMess}
+              leadersErrMess={this.props.leaders.errMess}
           />
       );
     }

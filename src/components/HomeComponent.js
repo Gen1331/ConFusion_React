@@ -5,19 +5,20 @@ import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 
 function RenderCard({item, isLoading, errMess}) {
+    
     if (isLoading) {
         return(
             <Loading />
-        );
-    }
-    else if (errMess) {
-        return(
-            <h4>{errMess}</h4>
-        );
-    }
-    else
-        return(
-            <FadeTransform in 
+            );
+        }
+        else if (errMess) {
+            return(
+                <h4>{errMess}</h4>
+                );
+            }
+            else
+            return(
+                <FadeTransform in 
                 transformProps={{
                     exitTransfrom: 'scale(0.5) translateY(-50%)'
                 }}>
@@ -31,11 +32,16 @@ function RenderCard({item, isLoading, errMess}) {
             </Card>
             </FadeTransform>
         );
-}
-
-function Home(props) {
-    return(
-      <div className="container">
+    }
+    
+    // console.log(item);
+    // console.log("TESTING");
+    // console.log("value is: " + item);
+    
+    function Home(props) {
+        console.log(props);
+        return(
+            <div className="container">
         <div className='row align-items-start'>
             <div className='col-12 col-md m1'>
                 <RenderCard item={props.dish} 
@@ -51,7 +57,7 @@ function Home(props) {
                 <RenderCard item={props.leader}
                 isLoading={props.leadersLoading}
                 errMess={props.leadersErrMess}
-                 />
+                />
             </div>
         </div>
       </div>      
